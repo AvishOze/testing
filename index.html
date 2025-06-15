@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shadow DOM Demo</title>
+  <style>
+    .host {
+      margin: 1em;
+      padding: 1em;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div class="host" id="shadow-host-1"></div>
+  <div class="host" id="shadow-host-2"></div>
+
+  <script>
+    // Create shadow root for the first host
+    const host1 = document.getElementById('shadow-host-1');
+    const shadow1 = host1.attachShadow({mode: 'open'});
+    shadow1.innerHTML = `
+      <style>
+        p { color: red; font-weight: bold; }
+      </style>
+      <p>This is inside Shadow Root 1</p>
+    `;
+
+    // Create shadow root for the second host
+    const host2 = document.getElementById('shadow-host-2');
+    const shadow2 = host2.attachShadow({mode: 'open'});
+    shadow2.innerHTML = `
+      <style>
+        p { color: blue; font-style: italic; }
+      </style>
+      <p>This is inside Shadow Root 2</p>
+    `;
+  </script>
+</body>
+</html>
