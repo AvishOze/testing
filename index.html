@@ -19,12 +19,19 @@
     // Create shadow root for the first host
     const host1 = document.getElementById('shadow-host-1');
     const shadow1 = host1.attachShadow({mode: 'open'});
-    setTimeout(()=>shadow1.innerHTML = `
+    setTimeout(()=>{
+      shadow1.innerHTML = `
       <style>
         p { color: red; font-weight: bold; }
       </style>
-      <p>This is inside Shadow Root 1</p>
-    `, 5000);
+      <p onClick={}>This is inside Shadow Root 1</p>
+      `;
+    const p1 = shadow1.querySelector('p');
+    p1.addEventListener('click', () => {
+      p1.textContent = 'Shadow Root 1 text changed!';
+    });
+
+      }, 5000);
 
     // Create shadow root for the second host
     const host2 = document.getElementById('shadow-host-2');
