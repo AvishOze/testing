@@ -42,6 +42,13 @@
       </style>
       <p>This is inside Shadow Root 2</p>
     `;
+    const p2 = shadow2.querySelector('p');
+    p2.addEventListener('mouseenter', () => {
+      p2.textContent = 'Shadow Root 2 text changed on hover!';
+    });
+    p2.addEventListener('mouseleave', () => {
+      p2.textContent = 'This is inside Shadow Root 2';
+    });
   </script>
 </body>
 </html>
